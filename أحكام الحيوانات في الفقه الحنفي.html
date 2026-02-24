@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أحكام الحيوانات في الفقه الحنفي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1008;
+    --parchment: #f5edd6;
+    --parchment-dark: #e8d9b5;
+    --gold: #b8860b;
+    --gold-light: #d4a843;
+    --halal: #2d6a3f;
+    --halal-bg: #e8f5ec;
+    --haram: #8b1a1a;
+    --haram-bg: #fbeaea;
+    --makruh: #7a5c00;
+    --makruh-bg: #fdf5dc;
+    --khilaf: #1a3d6e;
+    --khilaf-bg: #e8f0fb;
+    --border: #c9a84c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #2c1f0a;
+    background-image: 
+      radial-gradient(ellipse at 20% 10%, #4a2e0a 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, #3a2505 0%, transparent 50%);
+    font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    direction: rtl;
+  }
+
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px var(--gold), 0 0 0 8px #3a2505, 0 20px 60px rgba(0,0,0,0.7);
+    overflow: hidden;
+  }
+
+  /* Decorative border */
+  .ornamental-header {
+    background: linear-gradient(135deg, #3a2505 0%, #6b3e0a 40%, #3a2505 100%);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 4px double var(--gold);
+    position: relative;
+  }
+  .ornamental-header::before,
+  .ornamental-header::after {
+    content: "❧";
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .ornamental-header::before { right: 2rem; }
+  .ornamental-header::after { left: 2rem; transform: translateY(-50%) scaleX(-1); }
+
+  .title-ar {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    margin-bottom: 0.4rem;
+  }
+  .title-sub {
+    font-size: 0.95rem;
+    color: #c9a55a;
+    font-style: italic;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: var(--parchment-dark);
+    border-bottom: 1px solid var(--border);
+    justify-content: center;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1.5px solid currentColor;
+  }
+  .badge-halal { color: var(--halal); background: var(--halal-bg); }
+  .badge-haram { color: var(--haram); background: var(--haram-bg); }
+  .badge-makruh { color: var(--makruh); background: var(--makruh-bg); }
+  .badge-khilaf { color: var(--khilaf); background: var(--khilaf-bg); }
+
+  .table-container {
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+  }
+
+  thead tr {
+    background: linear-gradient(90deg, #3a2505, #6b3e0a, #3a2505);
+  }
+  thead th {
+    color: var(--gold-light);
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    text-align: center;
+    border: 1px solid #8b6020;
+    letter-spacing: 0.03em;
+  }
+
+  tbody tr {
+    transition: background 0.2s;
+  }
+  tbody tr:hover td {
+    filter: brightness(0.96);
+  }
+
+  td {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #d4b97a;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+
+  td.arabic-name {
+    font-family: 'Amiri', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+    white-space: nowrap;
+  }
+  td.english-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.88rem;
+    color: #3a2505;
+    text-align: center;
+    direction: ltr;
+    font-style: italic;
+  }
+  td.reasoning {
+    color: #2c1f0a;
+    font-size: 0.87rem;
+    max-width: 280px;
+  }
+  td.image-cell {
+    text-align: center;
+    width: 90px;
+    min-width: 80px;
+    padding: 0.4rem;
+  }
+  td.image-cell img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: block;
+    margin: 0 auto;
+  }
+  .img-placeholder {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto;
+    background: var(--parchment-dark);
+  }
+
+  /* Ruling badges in cells */
+  .ruling-pill {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: 1.5px solid currentColor;
+    white-space: nowrap;
+  }
+  .ruling-halal { color: var(--halal); background: var(--halal-bg); }
+  .ruling-haram { color: var(--haram); background: var(--haram-bg); }
+  .ruling-makruh-tahrim { color: #b34700; background: #fff0e6; border-color: #b34700; }
+  .ruling-makruh-tanzih { color: var(--makruh); background: var(--makruh-bg); }
+  .ruling-khilaf { color: var(--khilaf); background: var(--khilaf-bg); }
+
+  /* Row striping per category */
+  .row-haram td { background: #fdf4f4; }
+  .row-halal td { background: #f4fbf6; }
+  .row-makruh td { background: #fdfaf0; }
+  .row-khilaf td { background: #f3f7fe; }
+
+  .section-divider {
+    background: linear-gradient(90deg, #3a2505, #6b3e0a, #3a2505) !important;
+  }
+  .section-divider td {
+    color: var(--gold-light) !important;
+    font-family: 'Amiri', serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+    border-color: #8b6020 !important;
+    background: transparent !important;
+  }
+
+  .footer {
+    background: var(--parchment-dark);
+    border-top: 3px double var(--border);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #7a5c00;
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    .ornamental-header::before,
+    .ornamental-header::after { display: none; }
+    .title-ar { font-size: 1.4rem; }
+    td { padding: 0.5rem 0.4rem; font-size: 0.78rem; }
+    td.image-cell img, .img-placeholder { width: 50px; height: 50px; }
+  }
+
+  /* ═══════════════════════════════════════════
+     MADHAB COMPARISON TABLE STYLES
+  ═══════════════════════════════════════════ */
+
+  .madhab-header {
+    background: linear-gradient(135deg, #1a2e05 0%, #2d5a0a 40%, #1a2e05 100%);
+    padding: 2rem 2rem 1.6rem;
+    text-align: center;
+    border-top: 6px double var(--border);
+    border-bottom: 4px double #4a8a1a;
+    position: relative;
+  }
+  .madhab-header-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .madhab-title-ar {
+    font-family: 'Amiri', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #a8d86a;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    margin-bottom: 0.4rem;
+  }
+  .madhab-title-sub {
+    font-size: 0.9rem;
+    color: #8ac45a;
+    font-style: italic;
+    direction: ltr;
+  }
+
+  .madhab-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    background: #e8f0e0;
+    border-bottom: 1px solid #8ab86a;
+    justify-content: center;
+  }
+  .ml-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1.5px solid currentColor;
+  }
+  .ml-halal  { color: #2d6a3f; background: #e8f5ec; }
+  .ml-haram  { color: #8b1a1a; background: #fbeaea; }
+  .ml-makruh { color: #7a5c00; background: #fdf5dc; }
+  .ml-khilaf { color: #1a3d6e; background: #e8f0fb; }
+  .ml-same   { color: #3a5c1a; background: #f0f8e8; border-color: #7aaa3a; }
+
+  .madhab-note-bar {
+    background: #f0f8e0;
+    border-bottom: 1px solid #b8d890;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.82rem;
+    color: #2a4a10;
+    line-height: 1.5;
+  }
+
+  /* Madhab table itself */
+  .madhab-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.85rem;
+  }
+  .madhab-table thead tr {
+    background: linear-gradient(90deg, #1a2e05, #2d5a0a, #1a2e05);
+  }
+  .madhab-table thead th {
+    color: #a8d86a;
+    font-family: 'Amiri', serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 0.75rem 0.6rem;
+    text-align: center;
+    border: 1px solid #3a6a0a;
+    line-height: 1.3;
+  }
+  .madhab-table thead th small {
+    display: block;
+    font-size: 0.72rem;
+    color: #7ac83a;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .madhab-section-row td {
+    background: linear-gradient(90deg, #1a2e05, #2d5a0a, #1a2e05) !important;
+    color: #a8d86a !important;
+    font-family: 'Amiri', serif !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    padding: 0.45rem !important;
+    border-color: #3a6a0a !important;
+    letter-spacing: 0.04em;
+  }
+
+  .madhab-table tbody td {
+    padding: 0.65rem 0.6rem;
+    border: 1px solid #c9d9b0;
+    vertical-align: middle;
+    line-height: 1.5;
+    background: #f8fdf2;
+  }
+  .madhab-table tbody tr:nth-child(even) td {
+    background: #f0f8e8;
+  }
+  .madhab-table tbody tr:hover td {
+    filter: brightness(0.97);
+  }
+
+  .mth-animal { width: 130px; }
+  .mth-hanafi, .mth-maliki, .mth-shafii, .mth-hanbali, .mth-shia { width: 95px; text-align: center; }
+  .mth-notes { min-width: 220px; }
+
+  .mth-animal-cell {
+    text-align: center;
+    font-size: 0.83rem;
+  }
+  .ar-label {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: block;
+    color: #1a1008;
+  }
+  .mth-animal-cell em {
+    font-size: 0.75rem;
+    color: #5a4020;
+    font-style: italic;
+    direction: ltr;
+    display: block;
+  }
+
+  .mth-notes-cell {
+    font-size: 0.8rem;
+    color: #2a3a1a;
+    line-height: 1.55;
+    text-align: justify;
+    direction: ltr;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  /* Ruling cells */
+  .cell-halal {
+    background: #e8f5ec !important;
+    color: #2d6a3f;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.82rem;
+    border: 1px solid #b0d9b8 !important;
+  }
+  .cell-haram {
+    background: #fbeaea !important;
+    color: #8b1a1a;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.82rem;
+    border: 1px solid #e0b0b0 !important;
+  }
+  .cell-makruh {
+    background: #fdf5dc !important;
+    color: #7a5c00;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.78rem;
+    border: 1px solid #d9c880 !important;
+    line-height: 1.3;
+  }
+  .cell-khilaf {
+    background: #e8f0fb !important;
+    color: #1a3d6e;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.76rem;
+    border: 1px solid #a0b8e0 !important;
+    line-height: 1.3;
+  }
+
+  .madhab-footer {
+    background: #e8f0e0;
+    border-top: 3px double #8ab86a;
+    padding: 0.85rem 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #2a4a10;
+    font-style: italic;
+    line-height: 1.7;
+    direction: ltr;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="ornamental-header">
+    <div class="title-ar">أحكام الحيوانات في الفقه الحنفي</div>
+    <div class="title-sub">من كتاب الهداية في شرح بداية المبتدي — فصل فيما يحل أكله وما لا يحل</div>
+  </div>
+
+  <div class="legend">
+    <span class="badge badge-halal">● حلال</span>
+    <span class="badge badge-haram">● حرام</span>
+    <span class="badge badge-makruh">● مكروه تحريماً</span>
+    <span class="badge" style="color:#b34700;background:#fff0e6;border-color:#b34700;">● مكروه تنزيهاً</span>
+    <span class="badge badge-khilaf">● خلاف بين الأئمة</span>
+  </div>
+
+  <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>الاسم العربي</th>
+        <th>English Name</th>
+        <th>الحكم</th>
+        <th>الدليل والتعليل</th>
+        <th>صورة</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- SECTION: Land Predators -->
+      <tr class="section-divider">
+        <td colspan="5">🦁 سباع البهائم — Land Predators & Beasts</td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الضبع</td>
+        <td class="english-name">Hyena</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">من السباع ذوات الناب — فيها طبع الافتراس والعدوان، والنهي النبوي عن كل ذي ناب من السباع يشملها. والتحريم يدرأ انتقال الأوصاف الذميمة إلى الآكل.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Spotted_hyena_%28Crocuta_crocuta%29.jpg/150px-Spotted_hyena_%28Crocuta_crocuta%29.jpg" alt="Hyena" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦡</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الثعلب</td>
+        <td class="english-name">Fox</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">من السباع ذوات الناب — حجة على الشافعي الذي أباحه. والسبع: كل مختطف منتهب جارح قاتل عادةً، والثعلب يندرج تحت هذا التعريف.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/CyprusFox.jpg/150px-CyprusFox.jpg" alt="Fox" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦊</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">الفيل</td>
+        <td class="english-name">Elephant</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">ذو ناب — يُعدّ من ذوات الأنياب، فتنسحب عليه أحكام السباع. وكراهته تحريمية على الراجح في المذهب.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/150px-African_Bush_Elephant.jpg" alt="Elephant" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐘</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">اليربوع</td>
+        <td class="english-name">Jerboa</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">من سباع الهوام — صُنِّف في المذهب ضمن حيوانات الهوام الصغيرة ذات الطبع السبعي، فيكره أكله.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Dipus_sagitta_1.jpg/150px-Dipus_sagitta_1.jpg" alt="Jerboa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐀</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">ابن عرس</td>
+        <td class="english-name">Weasel</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">من سباع الهوام — ذو طبع سبعي يفترس صغار الحيوانات، فيلحق بسباع الهوام المكروهة.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Least_Weasel_%28Mustela_nivalis%29.jpg/150px-Least_Weasel_%28Mustela_nivalis%29.jpg" alt="Weasel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦦</div>
+        </td>
+      </tr>
+
+      <tr class="row-halal">
+        <td class="arabic-name">الأرنب</td>
+        <td class="english-name">Hare / Rabbit</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-halal">حلال</span></td>
+        <td class="reasoning">أكل منه النبي ﷺ حين أُهدي إليه مشوياً وأمر أصحابه بالأكل منه. وليس من السباع ولا من آكلة الجيف، فأشبه الظبي.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Oryctolagus_cuniculus_Rcdo.jpg/150px-Oryctolagus_cuniculus_Rcdo.jpg" alt="Rabbit" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐇</div>
+        </td>
+      </tr>
+
+      <!-- SECTION: Birds -->
+      <tr class="section-divider">
+        <td colspan="5">🦅 الطيور — Birds</td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الرَّخَم</td>
+        <td class="english-name">Griffon Vulture</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">يأكل الجيف — الطيور التي تتغذى على الجيف كريهة خبيثة، فكُرِه أكلها لاستقذارها.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Gyps_fulvus_-_01.jpg/150px-Gyps_fulvus_-_01.jpg" alt="Vulture" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦅</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">البُغاث</td>
+        <td class="english-name">Black Kite / Buzzard</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">يأكل الجيف — كالرخم في علة الكراهة. والاستقذار أصل في تحريم الخبائث التي نهى الله عنها في كتابه الكريم.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Black_kite_%28Milvus_migrans%29_in_Hyderabad.jpg/150px-Black_kite_%28Milvus_migrans%29_in_Hyderabad.jpg" alt="Black Kite" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦅</div>
+        </td>
+      </tr>
+
+      <tr class="row-halal">
+        <td class="arabic-name">غراب الزرع</td>
+        <td class="english-name">Rook / Field Crow</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-halal">حلال</span></td>
+        <td class="reasoning">يأكل الحبَّ لا الجيف — ليس من سباع الطير، ولا يتغذى على الجيف، فأشبه طيور الحبوب المباحة.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Rook_at_Slimbridge.jpg/150px-Rook_at_Slimbridge.jpg" alt="Rook" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐦</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الغراب الأبقع</td>
+        <td class="english-name">Pied / Carrion Crow</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">يأكل الجيف — خلافاً لغراب الزرع، فهذا النوع يتغذى على الجيف والنتن، فيكره أكله لخباثته.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Corvus_corone_cornix.jpg/150px-Corvus_corone_cornix.jpg" alt="Carrion Crow" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐦‍⬛</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الغُداف</td>
+        <td class="english-name">Raven / Hooded Crow</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">يأكل الجيف — حكمه كحكم الغراب الأبقع في الكراهة، لأن غالب غذائه الجيف والنجاسات.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Corvus_corax_-_Yosemite_Valley.jpg/150px-Corvus_corax_-_Yosemite_Valley.jpg" alt="Raven" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐦‍⬛</div>
+        </td>
+      </tr>
+
+      <tr class="row-khilaf">
+        <td class="arabic-name">العَقعَق</td>
+        <td class="english-name">Magpie</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-khilaf">خلاف</span></td>
+        <td class="reasoning">قال أبو حنيفة: لا بأس بأكله لأنه يخلط في غذائه فأشبه الدجاجة. وقال أبو يوسف: يُكره لأن غالب أكله الجيف. والمعتمد قول أبي حنيفة في الإباحة.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Eurasian_Magpie_-_Pica_pica.jpg/150px-Eurasian_Magpie_-_Pica_pica.jpg" alt="Magpie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐦</div>
+        </td>
+      </tr>
+
+      <!-- SECTION: Reptiles, Insects, Amphibians -->
+      <tr class="section-divider">
+        <td colspan="5">🦎 الزواحف والحشرات والبرمائيات — Reptiles, Insects & Amphibians</td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">الضَّبّ</td>
+        <td class="english-name">Uromastyx / Spiny-tailed Lizard</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">نهى النبي ﷺ عائشة رضي الله عنها حين سألته عن أكله — وهو حجة على الشافعي الذي أباحه. ويُعدّ أصلاً في قياس الحشرات عليه.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Uromastyx_geyri.jpg/150px-Uromastyx_geyri.jpg" alt="Uromastyx" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦎</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">السُّلحفاة</td>
+        <td class="english-name">Tortoise / Turtle</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">من خبائث الحشرات — لذلك لا يجب على المُحرم بقتلها فدية، مما يدل على عدم اعتبارها في منظومة الصيد المأكول.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Spur-thighed-Tortoise.jpg/150px-Spur-thighed-Tortoise.jpg" alt="Tortoise" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐢</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">الزُّنبور</td>
+        <td class="english-name">Wasp / Hornet</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">من المؤذيات — فطبعه الأذى والإيذاء، وما كان طبعه الإيذاء فأكله مكروه درءاً لانتقال هذه الصفة.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/European-wasp_white_bg.jpg/150px-European-wasp_white_bg.jpg" alt="Wasp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐝</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">الحشرات (عموماً)</td>
+        <td class="english-name">Insects (in general)</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span></td>
+        <td class="reasoning">قياساً على الضب — فالضب أصل في باب الحشرات، وكلها مكروهة استدلالاً به، لأنها من جنس الخبائث التي حرّمها الله على لسان نبيه.</td>
+        <td class="image-cell">
+          <div class="img-placeholder">🐛</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الضفدع</td>
+        <td class="english-name">Frog</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">نهى النبي ﷺ عن دواء يُتَّخذ فيه الضفدع — والنهي عن قتله يستلزم النهي عن أكله. وهو من حيوانات الماء التي ليست سمكاً.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lithobates_clamitans_1.jpg/150px-Lithobates_clamitans_1.jpg" alt="Frog" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐸</div>
+        </td>
+      </tr>
+
+      <!-- SECTION: Domesticated / Livestock -->
+      <tr class="section-divider">
+        <td colspan="5">🐴 الدواب — Domesticated Animals & Livestock</td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الحمار الأهلي</td>
+        <td class="english-name">Domestic Donkey</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">نهى النبي ﷺ عن لحوم الحمير الأهلية يوم خيبر — رواه علي وخالد بن الوليد. والإجماع منعقد على تحريمه.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Donkey_1_arp_750px.jpg/150px-Donkey_1_arp_750px.jpg" alt="Donkey" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🫏</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">البغل</td>
+        <td class="english-name">Mule</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">نهى النبي ﷺ عن لحوم البغال — لأنه متولّد من الحمار المحرَّم، فيأخذ حكمه. ولقوله تعالى ﴿وَالْخَيْلَ وَالْبِغَالَ وَالْحَمِيرَ لِتَرْكَبُوهَا﴾.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/MuleUSA.jpg/150px-MuleUSA.jpg" alt="Mule" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐴</div>
+        </td>
+      </tr>
+
+      <tr class="row-khilaf">
+        <td class="arabic-name">الفرس</td>
+        <td class="english-name">Horse</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tahrim">مكروه تحريماً</span><br><small style="color:#1a3d6e;font-size:0.75rem">(خلاف)</small></td>
+        <td class="reasoning">قال أبو حنيفة ومالك: يُكره تحريماً — لآية ﴿لِتَرْكَبُوهَا﴾ الدالة على كون الركوب هو النعمة، ولأنه آلة إرهاب العدو. وقال أبو يوسف ومحمد والشافعي: لا بأس، لحديث جابر في الإذن يوم خيبر. والأول أصح.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Collage_of_Nine_Horses.jpg/150px-Collage_of_Nine_Horses.jpg" alt="Horse" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐎</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الخنزير</td>
+        <td class="english-name">Pig</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">نجاسة عينية — الذكاة لا تُطهِّره ولا تُبيحه، خلافاً لسائر الحيوانات غير المأكولة. نجاسته ذاتية لا عارضة، كما صرّح القرآن الكريم.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Pigs_2009-09-26.jpg/150px-Pigs_2009-09-26.jpg" alt="Pig" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐷</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">الآدمي</td>
+        <td class="english-name">Human Being</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">الحرمة والكرامة الإنسانية — الذكاة لا تعمل فيه لكرامته وشرف خلقته. وهو محرَّم قطعاً بنص الكتاب والسنة والإجماع.</td>
+        <td class="image-cell">
+          <div class="img-placeholder">👤</div>
+        </td>
+      </tr>
+
+      <!-- SECTION: Aquatic -->
+      <tr class="section-divider">
+        <td colspan="5">🐟 حيوانات الماء — Aquatic Animals</td>
+      </tr>
+
+      <tr class="row-halal">
+        <td class="arabic-name">السمك (عموماً)</td>
+        <td class="english-name">Fish (in general)</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-halal">حلال</span></td>
+        <td class="reasoning">حديث: «أُحلَّت لنا ميتتان ودمان، أما الميتتان فالسمك والجراد». وهو الأصل في حل ما في البحر عند الحنفية — المقصور على السمك دون غيره.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Porgies.jpg/150px-Porgies.jpg" alt="Fish" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐟</div>
+        </td>
+      </tr>
+
+      <tr class="row-makruh">
+        <td class="arabic-name">السمك الطافي</td>
+        <td class="english-name">Fish that Floated to Surface (died on its own)</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-makruh-tanzih">مكروه تنزيهاً</span></td>
+        <td class="reasoning">حديث جابر: «ما نضب عنه الماء فكلوا، وما لفظه فكلوا، وما طفا فلا تأكلوا». وميتة البحر الحلال ما ألقاه البحر، أما ما مات فيه بلا آفة فيُكره.</td>
+        <td class="image-cell">
+          <div class="img-placeholder">🐠</div>
+        </td>
+      </tr>
+
+      <tr class="row-halal">
+        <td class="arabic-name">الجريث</td>
+        <td class="english-name">River Eel (Gryth)</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-halal">حلال</span></td>
+        <td class="reasoning">نوع من السمك — وإن اختلف شكله فهو في حكم السمك، فيحل بلا ذكاة كسائر أنواع السمك.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/European_Eel.jpg/150px-European_Eel.jpg" alt="Eel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐍</div>
+        </td>
+      </tr>
+
+      <tr class="row-halal">
+        <td class="arabic-name">المارماهي</td>
+        <td class="english-name">Conger / Moray Eel</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-halal">حلال</span></td>
+        <td class="reasoning">نوع من السمك — يُلحق بالجريث في الحكم. والأصل في السمك الحل، وهذا من أنواعه.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Conger_conger.jpg/150px-Conger_conger.jpg" alt="Conger Eel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🐍</div>
+        </td>
+      </tr>
+
+      <tr class="row-haram">
+        <td class="arabic-name">السرطان</td>
+        <td class="english-name">Crab</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-haram">حرام</span></td>
+        <td class="reasoning">ليس سمكاً — الحنفية يحلّون من ماء البحر السمكَ وحده. والسرطان وإن كان في الماء فليس سمكاً، فلا يحل أكله، ويُنهى عن بيعه.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Crab_on_the_beach.jpg/150px-Crab_on_the_beach.jpg" alt="Crab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦀</div>
+        </td>
+      </tr>
+
+      <!-- SECTION: Insects halal -->
+      <tr class="section-divider">
+        <td colspan="5">🦗 الجراد — Locusts</td>
+      </tr>
+
+      <tr class="row-halal">
+        <td class="arabic-name">الجراد</td>
+        <td class="english-name">Locust</td>
+        <td style="text-align:center"><span class="ruling-pill ruling-halal">حلال</span></td>
+        <td class="reasoning">حديث: «أُحلَّت لنا ميتتان: السمك والجراد». وسُئل علي رضي الله عنه عنه فقال: «كله كله». ويحل دون ذكاة سواء مات حتف أنفه أو أُخذ حياً، خلافاً لمالك.</td>
+        <td class="image-cell">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Locust_0001.jpg/150px-Locust_0001.jpg" alt="Locust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">🦗</div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="footer">
+    المصدر: الهداية في شرح بداية المبتدي للإمام المرغيناني (ت ٥٩٣ هـ) — فصل فيما يحل أكله وما لا يحل
+    <br>
+    <small>الأحكام المذكورة هي المذهب الحنفي إلا ما نُصَّ على الخلاف — والله أعلم بالصواب</small>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--         MADHAB COMPARISON TABLE                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <div class="madhab-header">
+    <div class="madhab-header-inner">
+      <div class="madhab-title-ar">مقارنة المذاهب الفقهية</div>
+      <div class="madhab-title-sub">Animals where Mālikī, Shāfiʿī, Ḥanbalī, or Shīʿa Twelver rulings differ from the Ḥanafī position</div>
+    </div>
+  </div>
+
+  <div class="madhab-legend">
+    <span class="ml-badge ml-halal">● حلال — Ḥalāl</span>
+    <span class="ml-badge ml-haram">● حرام — Ḥarām</span>
+    <span class="ml-badge ml-makruh">● مكروه — Makrūh</span>
+    <span class="ml-badge ml-khilaf">● خلاف داخلي — Internal Dispute</span>
+    <span class="ml-badge ml-same">✓ موافق للحنفي — Same as Ḥanafī</span>
+  </div>
+
+  <div class="madhab-note-bar">
+    <span>⚠️</span> Only animals with <strong>at least one diverging ruling</strong> are listed. Cells marked <span style="background:#e8d9b5;border:1px solid #c9a84c;border-radius:4px;padding:1px 6px;font-size:0.78rem;">✓</span> agree with the Ḥanafī position. All rulings assume proper <em>tadhkiya</em> (slaughter) where applicable.
+  </div>
+
+  <div class="table-container" style="padding-top:0">
+  <table class="madhab-table">
+    <thead>
+      <tr>
+        <th class="mth-animal">الحيوان / Animal</th>
+        <th class="mth-hanafi">🔵 حنفي<br><small>Ḥanafī</small></th>
+        <th class="mth-maliki">🟢 مالكي<br><small>Mālikī</small></th>
+        <th class="mth-shafii">🟠 شافعي<br><small>Shāfiʿī</small></th>
+        <th class="mth-hanbali">🟣 حنبلي<br><small>Ḥanbalī</small></th>
+        <th class="mth-shia">🔴 شيعي إثنا عشري<br><small>Shīʿa Twelver</small></th>
+        <th class="mth-notes">ملاحظات / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- PREDATORS -->
+      <tr class="madhab-section-row">
+        <td colspan="7">سباع البهائم والطيور — Land Predators &amp; Birds of Prey</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الضبع</span><br><em>Hyena</em></td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">The three Sunni schools outside Ḥanafī permit it; the Ḥanbalī position follows the hadith that the Prophet explicitly permitted hyena when asked. Shīʿa Twelvers concur with Ḥanafīs in prohibition. The Mālikī and Shāfiʿī cite the report of Ibn Abī ʿAmmar who asked Ibn ʿUmar: «الضبع أصيد هو؟ قال: نعم. قال: آكله؟ قال: نعم.»</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الثعلب</span><br><em>Fox</em></td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-khilaf">خلاف داخلي ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">The Ḥanafī text states Shāfiʿī permits fox alongside hyena. However within the Shāfiʿī school there is internal disagreement: al-Nawawī holds it ḥarām as a fanged predator, while some earlier Shāfiʿīs permitted it. Mālikīs and Ḥanbalīs agree with Ḥanafīs on prohibition.</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">اليربوع</span><br><em>Jerboa</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">The three non-Ḥanafī Sunni schools classify it as a small herbivore/omnivore rather than a predator and permit it. Shīʿa Twelvers prohibit it as one of the ḍawābb al-arḍ (earth-crawlers). Ḥanafīs treat it as a ḥashara (vermin).</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">ابن عرس</span><br><em>Weasel</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">Unusually, the other Sunni schools are actually <em>stricter</em> here — they classify it firmly as ḥarām (fanged predator), whereas Ḥanafīs place it only in makrūh taḥrīman as a ḥashara. Shīʿa Twelvers also prohibit it.</td>
+      </tr>
+
+      <!-- BIRDS -->
+      <tr class="madhab-section-row">
+        <td colspan="7">الطيور — Birds</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الرخم والبغاث</span><br><em>Vulture &amp; Kite</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-haram">حرام ✦</td>
+        <td class="cell-haram">حرام ✦</td>
+        <td class="cell-haram">حرام ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">All other schools are marginally stricter, categorising carrion-eating birds as clearly ḥarām (not merely makrūh). Ḥanafīs use makrūh taḥrīman, which is functionally near-ḥarām but technically distinguished in uṣūl.</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">العقعق</span><br><em>Magpie</em></td>
+        <td class="cell-khilaf">خلاف — الإباحة هي المعتمد</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-makruh">مكروه</td>
+        <td class="mth-notes-cell">The three Sunni schools uniformly permit the magpie as it does not hunt with talons. Shīʿa Twelvers consider it makrūh. Within the Ḥanafī school Abū Ḥanīfa permits it while Abū Yūsuf dislikes it — the dominant (muʿtamad) position is permissibility.</td>
+      </tr>
+
+      <!-- REPTILES -->
+      <tr class="madhab-section-row">
+        <td colspan="7">الزواحف والحشرات — Reptiles &amp; Insects</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الضب</span><br><em>Uromastyx / Spiny-tailed Lizard</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">The Prophet ﷺ himself did not eat ḍabb but did not prohibit it when others ate it at his table (Bukhārī). The three non-Ḥanafī Sunni schools derive permissibility from this. Ḥanafīs rely on the hadith where the Prophet discouraged ʿĀʾisha from eating it. Shīʿa Twelvers prohibit it outright.</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">السلحفاة</span><br><em>Tortoise / Turtle</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-khilaf">خلاف داخلي ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">Mālikīs and Ḥanbalīs permit it with proper slaughter. Shāfiʿīs are internally divided: al-Nawawī's view in <em>al-Majmūʿ</em> is that it requires slaughter and is then ḥalāl, while others within the school considered it among the khabāʾith. Shīʿa Twelvers prohibit it as a ḥashara.</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الزنبور / الحشرات</span><br><em>Wasp &amp; Insects</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">All other schools classify insects as ḥarām. The Ḥanafī usage of makrūh taḥrīman reflects the same functional prohibition but through a different legal category. There is no practical difference in outcome.</td>
+      </tr>
+
+      <!-- LIVESTOCK -->
+      <tr class="madhab-section-row">
+        <td colspan="7">الدواب — Domesticated Animals</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الفرس</span><br><em>Horse</em></td>
+        <td class="cell-makruh">مكروه تحريماً</td>
+        <td class="cell-makruh">مكروه تحريماً ✓</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-makruh">مكروه</td>
+        <td class="mth-notes-cell">Mālikīs share the Ḥanafī view of strong dislike (makrūh taḥrīman). Shāfiʿīs and Ḥanbalīs permit it based on Jābir's hadith of explicit permission at Khaybar. Shīʿa Twelvers consider it makrūh but not ḥarām. The Ḥanafī–Mālikī axis grounds the prohibition in the Qurʾānic verse of divine favour (16:8) and the strategic value of horses in jihad.</td>
+      </tr>
+
+      <!-- AQUATIC -->
+      <tr class="madhab-section-row">
+        <td colspan="7">حيوانات الماء — Aquatic Animals</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">السمك الطافي</span><br><em>Fish that floated dead</em></td>
+        <td class="cell-makruh">مكروه تنزيهاً</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="mth-notes-cell">All other schools permit it, citing the general hadith «الحل ميتته» (its dead is ḥalāl). Ḥanafīs distinguish: fish expelled by the sea or caught by hand when alive is ḥalāl; fish that died inside the water from no external cause and floated is makrūh tanzīhan. This is a nuanced Ḥanafī-only position.</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">السرطان</span><br><em>Crab</em></td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-halal">حلال ✦</td>
+        <td class="cell-haram">حرام</td>
+        <td class="mth-notes-cell">The Ḥanafī restriction of sea-food to fish alone makes crabs, shrimp, lobster, and all non-fish sea creatures ḥarām. Mālikīs, Shāfiʿīs, and Ḥanbalīs permit all sea animals citing ﴿أُحِلَّ لَكُمْ صَيْدُ الْبَحْرِ﴾ without restriction. Shīʿa Twelvers are even stricter than Ḥanafīs: only scaled fish are ḥalāl — non-scaled fish, shrimp, and all other sea creatures are ḥarām.</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الضفدع</span><br><em>Frog</em></td>
+        <td class="cell-haram">حرام</td>
+        <td class="cell-haram">حرام ✓</td>
+        <td class="cell-haram">حرام ✓</td>
+        <td class="cell-haram">حرام ✓</td>
+        <td class="cell-haram">حرام ✓</td>
+        <td class="mth-notes-cell">Unusually, all five traditions agree: the frog is ḥarām. The shared basis is the prohibition on killing frogs (recorded in Abū Dāwūd and al-Nasāʾī) — «نهى عن قتل الضفدع» — from which jurists across all schools infer prohibition of eating.</td>
+      </tr>
+
+      <!-- LOCUSTS -->
+      <tr class="madhab-section-row">
+        <td colspan="7">الجراد — Locusts</td>
+      </tr>
+
+      <tr>
+        <td class="mth-animal-cell"><span class="ar-label">الجراد</span><br><em>Locust</em></td>
+        <td class="cell-halal">حلال — بلا ذكاة</td>
+        <td class="cell-khilaf">يشترط التسبب في قتله ✦</td>
+        <td class="cell-halal">حلال ✓</td>
+        <td class="cell-halal">حلال ✓</td>
+        <td class="cell-halal">حلال ✓</td>
+        <td class="mth-notes-cell">All schools permit locusts based on the explicit hadith. The Mālikī distinction is methodological: Mālik held that the locust must die as a result of a human act (catching, roasting, boiling) — if it dies on its own before being caught, it is not permitted. Ḥanafīs, Shāfiʿīs, and Ḥanbalīs permit it even if found already dead, relying on ʿAlī's statement «كله كله».</td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="madhab-footer">
+    <strong>Sources for comparative rulings:</strong> Ibn Qudāma, <em>al-Mughnī</em>; al-Nawawī, <em>al-Majmūʿ</em>; Ibn Rushd, <em>Bidāyat al-Mujtahid</em>; al-ʿAllāma al-Ḥillī, <em>Tadhkirat al-Fuqahāʾ</em>; al-Ṭūsī, <em>al-Mabsūṭ</em>.
+    <br><small>✦ = differs from Ḥanafī &nbsp;|&nbsp; ✓ = agrees with Ḥanafī &nbsp;|&nbsp; All rulings assume the animal is slaughtered according to each school's requirements where applicable &nbsp;|&nbsp; والله أعلم بالصواب</small>
+  </div>
+
+  <div class="footer">
+    المصدر: الهداية في شرح بداية المبتدي للإمام المرغيناني (ت ٥٩٣ هـ) — فصل فيما يحل أكله وما لا يحل
+    <br>
+    <small>الأحكام المذكورة هي المذهب الحنفي إلا ما نُصَّ على الخلاف — والله أعلم بالصواب</small>
+  </div>
+</div>
+</body>
+</html>
